@@ -30,8 +30,9 @@ class MapScreen extends StatelessWidget {
       appBar: AppBar(title:KText(text: "Your Current Location",fontSize: 14,)),
       body:  Stack(
         children: <Widget>[
-          GoogleMap(initialCameraPosition: CameraPosition(target:
-          LatLng(-33.870840,151.206286),
+          GoogleMap(
+              initialCameraPosition: CameraPosition(target:
+             LatLng(-33.870840,151.206286),
               zoom: 12)
           )
         ],

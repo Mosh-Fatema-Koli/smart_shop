@@ -19,9 +19,9 @@ class GlobalButtons {
         decoration: BoxDecoration(color: color ?? BrandColors.lightgreyColor),
         child: TextButton(
           style: ElevatedButton.styleFrom(
-              backgroundColor:BrandColors.colorButton,
+
               elevation: 0.0,
-              shadowColor: pinkColor,
+              shadowColor: BrandColors.lightgreyColor,
               foregroundColor: Colors.white),
           onPressed: press,
           child: Text(

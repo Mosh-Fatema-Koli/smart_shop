@@ -1,13 +1,25 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:smart_shop/src/screen/view/cart/cart.dart';
 import 'package:smart_shop/src/screen/widgets/app_icons.dart';
 import 'package:smart_shop/src/screen/widgets/button.dart';
 import 'package:smart_shop/src/screen/widgets/colors.dart';
 import 'package:smart_shop/src/screen/widgets/k_text.dart';
 
 class ProductDetails extends StatelessWidget {
-  const ProductDetails({super.key});
+  ProductDetails({super.key});
+
+  RxBool isButton1Clicked = false.obs;
+  RxBool isButton2Clicked = false.obs;
+
+  void toggleButton1() {
+    isButton1Clicked.value = !isButton1Clicked.value;
+  }
+
+  void toggleButton2() {
+    isButton2Clicked.value = !isButton2Clicked.value;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -122,11 +134,23 @@ class ProductDetails extends StatelessWidget {
                   padding: const EdgeInsets.all(10),
                   child: Row(
                     children: [
-                      Expanded(child: GlobalButtons.buttonWidget(text: "Add to Cart")),
+
+
+                    Obx(() =>  Expanded(child: GlobalButtons.buttonWidget(
+                          press: (){
+                            toggleButton1();
+                          },
+                          text: "Add to Cart", color: isButton1Clicked.value ? BrandColors.colorButton:BrandColors.lightgreyColor))),
                       SizedBox(
                         width: 10,
                       ),
-                      Expanded(child: GlobalButtons.buttonWidget(text: "Buy Now")),
+                      Obx(() =>  Expanded(child: GlobalButtons.buttonWidget(
+                          press: (){
+                            toggleButton2();
+                            Get.to(CartPage());
+                          },
+                          text: "Buy now", color:isButton2Clicked.value ? BrandColors.colorButton:BrandColors.lightgreyColor))),
+
 
 
                     ],
