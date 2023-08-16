@@ -12,6 +12,7 @@ class CartPage extends StatelessWidget {
 
  final CartController controller = Get.put(CartController());
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,118 +52,128 @@ class CartPage extends StatelessWidget {
                   ],
                 ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            children: [
-              Divider(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 5),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Divider(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 5),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                KText(text: "Delivery to"),
+                Row(
                   children: [
-                    KText(text: "Delivery to"),
-                    Row(
-                      children: [
-                        KText(text: "Salatiga City, Central Java",color: BrandColors.primaryColor,),
-                        Icon(Icons.keyboard_arrow_down_outlined,color: BrandColors.primaryColor,)
-                      ],
-                    )
+                    KText(text: "Salatiga City, Central Java",color: BrandColors.primaryColor,),
+                    Icon(Icons.keyboard_arrow_down_outlined,color: BrandColors.primaryColor,)
                   ],
-                ),
-              ),
-              Divider(),
+                )
+              ],
+            ),
+          ),
+          Divider(),
 
-              SingleChildScrollView(
-                child: Container(
-                  height: 500,
-                  child:Obx(() => ListView.builder(
-                    itemCount: controller.cardList.length,
-                    itemBuilder: (context, index) {
-                      final cardData = controller.cardList[index];
+          SingleChildScrollView(
+            child: Container(
+              height: 500,
+              child:Obx(() => ListView.builder(
+                itemCount: controller.cardList.length,
+                itemBuilder: (context, index) {
 
-                      return Container(
-                        child: ListTile(
-                          leading: Checkbox(
-                            value: cardData.isSelected,
-                            onChanged: (value) {
-                              controller.toggleCardSelection(index);
-                            },
-                          ),
-                          title: Container(
+                  final cardData = controller.cardList[index];
 
-                            child: Row(
-                              children: [
-                                Expanded(
+                  final isItemSelected = cardData.isSelected;
 
-                                    flex:1,
-                                    child: Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqJfcBpl3WXLCJ_3XzXwJb_7tWkiOuq1G2cg&usqp=CAU",height:100,fit: BoxFit.cover,)
-                                ),
-                                SizedBox(width: 5,),
-                                Expanded(
-                                    flex:3,
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                  return Container(
+                    child: ListTile(
+                      contentPadding: EdgeInsets.all(5),
+                      leading: Checkbox(
+                        value: cardData.isSelected,
+                        checkColor: BrandColors.colorWhite,
+                        activeColor: BrandColors.colorButton,
+                        onChanged: (value) {
+                          controller.toggleCardSelection(index);
+                        },
+                      ),
+                      title: Container(
+
+                        child: Row(
+                          children: [
+                            Expanded(
+
+                                flex:1,
+                                child: Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqJfcBpl3WXLCJ_3XzXwJb_7tWkiOuq1G2cg&usqp=CAU",height:100,fit: BoxFit.cover,)
+                            ),
+                            SizedBox(width: 5,),
+                            Expanded(
+                                flex:3,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    KText(text: controller.cardList[index].name,fontSize: 16,fontWeight: FontWeight.bold,),
+                                    KText(text: "Variant: ${controller.cardList[index].variant}"),
+                                    Row(
                                       children: [
-                                        KText(text: "Air pods max by Apple"),
-                                        KText(text: "Variant: Grey"),
+                                        KText(text: "${controller.cardList[index].price.toString()}0 Tk"),
                                         Row(
                                           children: [
-                                            KText(text: "\$ 1555"),
-                                            Row(
-                                              children: [
-                                                IconButton(onPressed: (){}, icon: Icon(Icons.remove_circle_outline_outlined,color: BrandColors.lightgreyColor,)),
-                                                KText(text: "1"),
-                                                IconButton(onPressed: (){}, icon: Icon(Icons.add_circle_outline,color: BrandColors.lightgreyColor,)),
-                                                IconButton(onPressed: (){}, icon: Icon(Icons.delete,color: BrandColors.lightgreyColor,))
-                                              ],
-                                            ),
-
+                                            IconButton(onPressed: (){
+                                              controller.decrementQuantity(index);
+                                            }, icon: Icon(Icons.remove_circle_outline_outlined,color: BrandColors.lightgreyColor,)),
+                                            KText(text: controller.cardList[index].quantity.toString()),
+                                            IconButton(onPressed: (){
+                                              controller.incrementQuantity(index);
+                                            }, icon: Icon(Icons.add_circle_outline,color: BrandColors.lightgreyColor,)),
+                                            IconButton(onPressed: (){}, icon: Icon(Icons.delete,color: BrandColors.lightgreyColor,))
                                           ],
-                                        )
+                                        ),
 
                                       ],
-                                    ))
+                                    )
 
-                              ],
-                            ),
-                          ),
+                                  ],
+                                ))
 
+                          ],
                         ),
-                      );
-                    },
-                  )),
-              ))
-            ],
-          ),
-          Container(
-            height: 100,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      KText(text: "Totals",fontSize: 16,fontWeight: FontWeight.bold,),
-                      KText(text: "\$ 1555",fontSize: 16,fontWeight: FontWeight.bold,),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  GlobalButtons.buttonWidget(text: "Continue for payments",color: BrandColors.lightgreyColor)
-                ],
-              ),
-            ),
-          )
+                      ),
+
+                    ),
+                  );
+                },
+              )),
+          ))
         ],
       ),
 
 
+        bottomNavigationBar: Container(
+          height: 100,
+          child: Obx(() => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    KText(text: "Totals", fontSize: 16, fontWeight: FontWeight.bold),
+                    KText(text: "${controller.totalPrice.toString()}0 Tk", fontSize: 16, fontWeight: FontWeight.bold),
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                GlobalButtons.buttonWidget(
+                  text: "Continue for payments",
+                  color: controller.isSelected.value
+                      ? BrandColors.colorButton // Change the color when isSelected is true
+                      : BrandColors.lightgreyColor,
+                ),
+              ],
+            ),
+          ),)
+        )
 
 
-      
+
     );
   }
 }

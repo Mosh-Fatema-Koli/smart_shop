@@ -16,104 +16,107 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: BrandColors.backgroundColor,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(15),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Card(
-                color: Colors.white,
-                child: GestureDetector(
-                  onTap: (){
-                    Get.to(SearchPage());
-                  },
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 15),
-                    height: 50,
-                    width: Get.width,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10)
-                    ),
-                    child: Row(
-                      children: [
-                        Image.asset("images/icons/Search.png",height: 25,width: 20,),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        KText(text: "Search",color: BrandColors.greyColor,fontSize: 15,)
-                      ],
+      body: ListView(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Card(
+                  color: Colors.white,
+                  child: GestureDetector(
+                    onTap: (){
+                      Get.to(SearchPage());
+                    },
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 15),
+                      height: 50,
+                      width: Get.width,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      child: Row(
+                        children: [
+                          Image.asset("images/icons/Search.png",height: 25,width: 20,),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          KText(text: "Search",color: BrandColors.greyColor,fontSize: 15,)
+                        ],
 
+                      ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              BannerImageCarousel(),
+                SizedBox(
+                  height: 15,
+                ),
+                BannerImageCarousel(),
 
-              SizedBox(
-                height: 10,
-              ),
+                SizedBox(
+                  height: 10,
+                ),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    KText(text: "Categories",fontSize: 18,fontWeight: FontWeight.w600,),
+                    GestureDetector(
+                        onTap: (){
+                          Get.to(AllCategories());
+                        },
+                        child: KText(text: "View All",fontSize: 14,fontWeight: FontWeight.w600,color: BrandColors.colorButton,)),
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  height: 100,
+                  child: CategoriesPage(),
+                ),
+
+                Row(
+               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  KText(text: "Categories",fontSize: 18,fontWeight: FontWeight.w600,),
-                  GestureDetector(
-                      onTap: (){
-                        Get.to(AllCategories());
-                      },
-                      child: KText(text: "View All",fontSize: 14,fontWeight: FontWeight.w600,color: BrandColors.colorButton,)),
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                height: 100,
-                child: CategoriesPage(),
-              ),
+                 KText(text: "Recent product",fontSize: 18,fontWeight: FontWeight.w600,),
 
-            Row(
-             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-               KText(text: "Recent product",fontSize: 18,fontWeight: FontWeight.w600,),
-
-               Card(
-                 child: Container(
-                  color: Colors.white,
-                   child: Padding(
-                     padding: const EdgeInsets.all(8.0),
-                     child: Row(
-                       children: [
-                         KText(text: "Filters",color: BrandColors.greyColor,),
-                         SizedBox(
-                           width: 10,
-                         ),
-                         Icon(Icons.filter_alt_sharp,color: BrandColors.greyColor,)
-                       ],
+                 Card(
+                   child: Container(
+                    color: Colors.white,
+                     child: Padding(
+                       padding: const EdgeInsets.all(8.0),
+                       child: Row(
+                         children: [
+                           KText(text: "Filters",color: BrandColors.greyColor,),
+                           SizedBox(
+                             width: 10,
+                           ),
+                           Icon(Icons.filter_alt_sharp,color: BrandColors.greyColor,)
+                         ],
+                       ),
                      ),
                    ),
                  ),
-               ),
+
+                ],
+              ),
+                SizedBox(
+                  height: 10,
+                ),
+                Column(
+                  children: [
+                    RecentProduct(),
+                  ],
+                ),
+
 
               ],
             ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                height: 1500,
-                child: RecentProduct(),
-
-              )
-
-            ],
           ),
-        )
+        ],
       ),
     );
   }

@@ -31,8 +31,8 @@ class NavBarScreen extends StatelessWidget {
             },
             items:[
           bottomBarItem(label:"Home", icon:Icon(Icons.home_rounded)),
-          bottomBarItem(label:"WishList",icon:Icon(Icons.favorite_border_rounded)),
-          bottomBarItem(label:"History", icon:Icon(Icons.sticky_note_2_sharp)),
+          bottomBarItem(label:"WishList",icon:Icon(Icons.favorite)),
+          bottomBarItem(label:"Offer", icon:Icon(Icons.local_offer)),
           bottomBarItem(label:"Account",icon:Icon(Icons.person)),
 
 

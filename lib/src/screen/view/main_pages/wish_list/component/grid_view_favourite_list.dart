@@ -7,8 +7,8 @@ import 'package:smart_shop/src/screen/widgets/colors.dart';
 import 'package:smart_shop/src/screen/widgets/k_text.dart';
 
 
-class RecentProduct extends StatelessWidget {
-  const RecentProduct({super.key});
+class FavouriteProduct extends StatelessWidget {
+  const FavouriteProduct({super.key});
 
   @override
   Widget build(BuildContext context) {

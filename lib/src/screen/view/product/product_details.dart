@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smart_shop/src/screen/view/cart/cart.dart';
+import 'package:smart_shop/src/screen/view/cart/controller/cart_controller.dart';
 import 'package:smart_shop/src/screen/widgets/app_icons.dart';
 import 'package:smart_shop/src/screen/widgets/button.dart';
 import 'package:smart_shop/src/screen/widgets/colors.dart';
@@ -9,6 +10,8 @@ import 'package:smart_shop/src/screen/widgets/k_text.dart';
 
 class ProductDetails extends StatelessWidget {
   ProductDetails({super.key});
+
+  final CartController controller = Get.put(CartController());
 
   RxBool isButton1Clicked = false.obs;
   RxBool isButton2Clicked = false.obs;
@@ -27,23 +30,28 @@ class ProductDetails extends StatelessWidget {
      appBar: AppBar(
           title: Center(child: KText(text: "Details product",)),
        actions: [
-         Stack(
-           children: [
-             Image.asset(AppIcons.cart,height: 30,width: 30,),
-             Positioned(
-               top: 0,
-               right: 0,
-               child: Container(
-                 height: 15,
-                 width: 15,
-                 decoration: BoxDecoration(
-                     color: Colors.red,
-                     borderRadius: BorderRadius.circular(100)
+         GestureDetector(
+           onTap: (){
+             Get.to(CartPage());
+           },
+           child: Stack(
+             children: [
+               Image.asset(AppIcons.cart,height: 30,width: 30,),
+               Positioned(
+                 top: 0,
+                 right: 0,
+                 child: Container(
+                   height: 15,
+                   width: 15,
+                   decoration: BoxDecoration(
+                       color: Colors.red,
+                       borderRadius: BorderRadius.circular(100)
+                   ),
+                   child: Center(child: KText(text: "",fontSize: 8,color: BrandColors.colorWhite,)),
                  ),
-                 child: Center(child: KText(text: "0",fontSize: 8,color: BrandColors.colorWhite,)),
-               ),
-             )
-           ],
+               )
+             ],
+           ),
          ),
          SizedBox(
            width: 10,
@@ -81,7 +89,16 @@ class ProductDetails extends StatelessWidget {
 
                             ],
                           ),
-                          Image.asset(AppIcons.love, height: 30,width: 30,),
+                          GestureDetector(
+                              onTap: (){
+                                Get.snackbar(
+                                  "Item Added",
+                                  "Women Printed Kurta added to cart.",
+                                  backgroundColor: BrandColors.colorButton,
+                                  colorText: BrandColors.colorTextDark,
+                                );
+                              },
+                              child: Image.asset(AppIcons.love, height: 30,width: 30,)),
 
 
                         ],
@@ -139,6 +156,13 @@ class ProductDetails extends StatelessWidget {
                     Obx(() =>  Expanded(child: GlobalButtons.buttonWidget(
                           press: (){
                             toggleButton1();
+                            Get.snackbar(
+                              "Item Added",
+                              "Women Printed Kurta added to cart.",
+                              backgroundColor: BrandColors.colorButton,
+                              colorText: BrandColors.colorTextDark,
+                            );
+
                           },
                           text: "Add to Cart", color: isButton1Clicked.value ? BrandColors.colorButton:BrandColors.lightgreyColor))),
                       SizedBox(
@@ -148,6 +172,7 @@ class ProductDetails extends StatelessWidget {
                           press: (){
                             toggleButton2();
                             Get.to(CartPage());
+                            isButton2Clicked.value= false;
                           },
                           text: "Buy now", color:isButton2Clicked.value ? BrandColors.colorButton:BrandColors.lightgreyColor))),
 
