@@ -13,6 +13,7 @@ import 'package:smart_shop/src/screen/widgets/k_text.dart';
 setAppBar() {
   // ignore: unnecessary_new
   return new AppBar(
+    elevation: 0,
     backgroundColor: BrandColors.backgroundColor,
     // leading: Builder(
     //   builder: (context) => IconButton(
@@ -107,6 +108,5 @@ setAppBar() {
 
       SizedBox(width: 10,)
     ],
-    elevation: 0,
   );
 }

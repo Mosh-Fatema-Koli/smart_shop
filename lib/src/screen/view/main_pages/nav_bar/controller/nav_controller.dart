@@ -10,6 +10,10 @@ import 'package:smart_shop/src/screen/view/search/src_page.dart';
 class NavBarController extends GetxController{
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+  static final riKey1 = const Key('__RIKEY1__');
+  static final riKey2 = const Key('__RIKEY2__');
+  static final riKey3 = const Key('__RIKEY3__');
+
 
   var isSelectIndex=0.obs;
 

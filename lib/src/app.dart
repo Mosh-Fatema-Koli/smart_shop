@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:smart_shop/src/screen/view/1st_page/splash.dart';
 import 'package:smart_shop/src/screen/view/main_pages/nav_bar/bottom_bar_page.dart';
 
 class MyApp extends StatelessWidget {

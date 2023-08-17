@@ -11,7 +11,7 @@ class NavBarScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _navController.scaffoldKey,
+      key: NavBarController.riKey1,
 
       appBar: setAppBar(),
       body:Obx(() => _navController.page[_navController.isSelectIndex.value]),

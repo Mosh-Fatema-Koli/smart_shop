@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
@@ -39,6 +40,7 @@ class KText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkTheme = Get.isDarkMode;
     return Text(
       '$text',
       style: GoogleFonts.openSans(

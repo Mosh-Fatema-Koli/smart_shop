@@ -42,6 +42,7 @@ dependencies:
   location:
   google_maps_flutter:
   geolocator:
+  url_launcher:
 
 
 

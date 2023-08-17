@@ -145,31 +145,38 @@ class CartPage extends StatelessWidget {
       ),
 
 
-        bottomNavigationBar: Container(
-          height: 100,
-          child: Obx(() => Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        bottomNavigationBar: Column(
+      mainAxisSize: MainAxisSize.min,
+          children: [
+            Divider(),
+            Container(
+
+              height: 100,
+              child: Obx(() => Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                child: Column(
                   children: [
-                    KText(text: "Totals", fontSize: 16, fontWeight: FontWeight.bold),
-                    KText(text: "${controller.totalPrice.toString()}0 Tk", fontSize: 16, fontWeight: FontWeight.bold),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        KText(text: "Totals", fontSize: 18, fontWeight: FontWeight.bold),
+                        KText(text: "${controller.totalPrice.toString()}0 Tk", fontSize: 18, fontWeight: FontWeight.bold),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    GlobalButtons.buttonWidget(
+                      text: "Continue for payments",
+                      color: controller.isSelected.value
+                          ? BrandColors.colorButton // Change the color when isSelected is true
+                          : BrandColors.lightgreyColor,
+                    ),
                   ],
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-                GlobalButtons.buttonWidget(
-                  text: "Continue for payments",
-                  color: controller.isSelected.value
-                      ? BrandColors.colorButton // Change the color when isSelected is true
-                      : BrandColors.lightgreyColor,
-                ),
-              ],
+              ),)
             ),
-          ),)
+          ],
         )
 
 
