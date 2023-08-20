@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:smart_shop/src/screen/view/location/controller/location_controller.dart';
 import 'package:smart_shop/src/screen/view/location/map.dart';
 import 'package:smart_shop/src/screen/widgets/colors.dart';
 import 'package:smart_shop/src/screen/widgets/k_text.dart';
 
 class BottomSheetWidget extends StatelessWidget {
+
+  final  MapController _mapController =Get.put(MapController());
   @override
   Widget build(BuildContext context) {
 
@@ -17,11 +21,15 @@ class BottomSheetWidget extends StatelessWidget {
 
           ListTile(
               onTap: (){
-                Get.to(MapScreen());
+                _mapController.getCurrentLocation();
+                Navigator.pop(context);
+
               },
+            leading: Icon(Icons.add_circle,color: BrandColors.colorButton,),
               title: KText(text:'Add Your Current Location',fontSize: 14,),
               trailing: IconButton(onPressed: (){
-                Get.to(MapScreen());
+                _mapController.getmapCurrentLocation();
+                Navigator.pop(context);
               },icon: Icon(Icons.arrow_forward_rounded),),
 
           )

@@ -11,47 +11,45 @@ class FavouriteProduct extends StatelessWidget {
   const FavouriteProduct({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return GridView.builder(
-      itemCount: 30,
-      shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 5,
-        mainAxisSpacing: 10,
-        childAspectRatio: .75,
-      ),
-      itemBuilder: (BuildContext context, int index) {
-        return GestureDetector(
-          onTap: () {
-            Get.to(ProductDetails());
-          },
-          child: Card(
-            color: BrandColors.cardColor,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  flex: 4,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10),
+
+    Widget build(BuildContext context) {
+      return GridView.builder(
+        itemCount: 30,
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 5,
+          mainAxisSpacing: 10,
+          childAspectRatio: .75,
+        ),
+        itemBuilder: (BuildContext context, int index) {
+          return GestureDetector(
+            onTap: () {
+              Get.to(ProductDetails());
+            },
+            child: Card(
+              color: BrandColors.cardColor,
+              child: Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                        ),
+                        child: Image.asset(
+                          "images/products/img.png",
+                          fit: BoxFit.cover,
+                          height: 120,
+                          width: Get.width,
+                        ),
+                      ),
                     ),
-                    child: Image.asset(
-                      "images/products/img.png",
-                      fit: BoxFit.cover,
-                      height: 120,
-                      width: Get.width,
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 5,
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Container(
+                    Padding(
+                      padding: const EdgeInsets.all(10),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -61,10 +59,10 @@ class FavouriteProduct extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                           SizedBox(height: 5),
-                          KText(text: "Tk 1500"),
+                          KText(text: "Tk 1500", fontSize: 12,),
                           SizedBox(height: 10),
                           CartButtons.cartbuttonWidget(
-                            press: (){
+                            press: () {
                               Get.snackbar(
                                 "Item Added",
                                 "Women Printed Kurta added to cart.",
@@ -75,19 +73,19 @@ class FavouriteProduct extends StatelessWidget {
                             text: "Add to cart",
                             textColor: BrandColors.colorWhite,
                             color: BrandColors.colorButton,
-
                           ),
+
                         ],
                       ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
-        );
-      },
-    );
-  }
+          );
+        },
+      );
+    }
+
 }
 

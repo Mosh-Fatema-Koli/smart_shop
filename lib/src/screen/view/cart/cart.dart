@@ -23,27 +23,29 @@ class CartPage extends StatelessWidget {
                      }, icon: Icon(Icons.arrow_back,color: Colors.black,),),
                   title: KText(text: "Your Cart",),
                   actions: [
-                    GestureDetector(
-                      onTap: (){
-                        Get.to(CartPage());
-                      },
-                      child: Stack(
-                        children: [
-                          Image.asset(AppIcons.cart,height: 30,width: 30,),
-                          Positioned(
-                            top: 0,
-                            right: 0,
-                            child: Container(
-                              height: 15,
-                              width: 15,
-                              decoration: BoxDecoration(
-                                  color: Colors.red,
-                                  borderRadius: BorderRadius.circular(100)
+                    Center(
+                      child: GestureDetector(
+                        onTap: (){
+                          Get.to(CartPage());
+                        },
+                        child: Stack(
+                          children: [
+                            Image.asset(AppIcons.cart,height: 30,width: 30,),
+                            Positioned(
+                              top: 0,
+                              right: 0,
+                              child: Container(
+                                height: 15,
+                                width: 15,
+                                decoration: BoxDecoration(
+                                    color: Colors.red,
+                                    borderRadius: BorderRadius.circular(100)
+                                ),
+                                child: Center(child: KText(text: "0",fontSize: 8,color: BrandColors.colorWhite,)),
                               ),
-                              child: Center(child: KText(text: "0",fontSize: 8,color: BrandColors.colorWhite,)),
-                            ),
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -62,8 +64,8 @@ class CartPage extends StatelessWidget {
                 KText(text: "Delivery to"),
                 Row(
                   children: [
-                    KText(text: "Salatiga City, Central Java",color: BrandColors.primaryColor,),
-                    Icon(Icons.keyboard_arrow_down_outlined,color: BrandColors.primaryColor,)
+                    KText(text: "Salatiga City, Central Java",color: BrandColors.colorDark,),
+                    Icon(Icons.keyboard_arrow_down_outlined,color: BrandColors.colorDark,)
                   ],
                 )
               ],

@@ -37,8 +37,8 @@ setAppBar() {
             },
             child: Row(
               children: [
-                KText(text: "Salatiga City, Central Java",color: BrandColors.primaryColor,),
-                Icon(Icons.keyboard_arrow_down_outlined,color: BrandColors.primaryColor,)
+                KText(text: "Salatiga City, Central Java",color: BrandColors.colorDark,),
+                Icon(Icons.keyboard_arrow_down_outlined,color: BrandColors.colorDark,)
               ],
             ),
           )
@@ -46,67 +46,73 @@ setAppBar() {
      ),
 
     actions: [
-      Builder(
-        builder: (context) => InkWell(
-          onTap: () {
-            Get.to(
-                CartPage()
-            );
-          },
-         child:  Stack(
-           children: [
-             Image.asset(AppIcons.cart,height: 30,width: 30,),
-             Positioned(
-               top: 0,
-               right: 0,
-               child: Container(
-                 height: 15,
-                 width: 15,
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(100)
-                ),
-                 child: Center(child: KText(text: "0",fontSize: 8,color: BrandColors.colorWhite,)),
+     Center(
+       child: Row(
+         children: [
+           Builder(
+             builder: (context) => InkWell(
+               onTap: () {
+                 Get.to(
+                     CartPage()
+                 );
+               },
+               child:  Stack(
+                 children: [
+                   Image.asset(AppIcons.cart,height: 30,width: 30,),
+                   Positioned(
+                     top: 0,
+                     right: 0,
+                     child: Container(
+                       height: 15,
+                       width: 15,
+                       decoration: BoxDecoration(
+                           color: Colors.red,
+                           borderRadius: BorderRadius.circular(100)
+                       ),
+                       child: Center(child: KText(text: "0",fontSize: 8,color: BrandColors.colorWhite,)),
+                     ),
+                   )
+                 ],
                ),
-             )
-           ],
-         ),
 
-        ),
-      ),
-      SizedBox(
-        width: 10,
-      ),
-      Builder(
-        builder: (context) => InkWell(
-          onTap: () {
-            Get.to(
-                NotificationPage()
-            );
-          },
-          child:  Stack(
-            children: [
-              Image.asset(AppIcons.notification,height: 30,width: 30,),
-              Positioned(
-                top: 0,
-                right: 0,
-                child: Container(
-                  height: 15,
-                  width: 15,
-                  decoration: BoxDecoration(
-                      color: Colors.red,
-                      borderRadius: BorderRadius.circular(100)
-                  ),
-                  child: Center(child: KText(text: "0",fontSize: 8,color: BrandColors.colorWhite,)),
-                ),
-              )
-            ],
-          ),
+             ),
+           ),
+           SizedBox(
+             width: 10,
+           ),
+           Builder(
+             builder: (context) => InkWell(
+               onTap: () {
+                 Get.to(
+                     NotificationPage()
+                 );
+               },
+               child:  Stack(
+                 children: [
+                   Image.asset(AppIcons.notification,height: 30,width: 30,),
+                   Positioned(
+                     top: 0,
+                     right: 0,
+                     child: Container(
+                       height: 15,
+                       width: 15,
+                       decoration: BoxDecoration(
+                           color: Colors.red,
+                           borderRadius: BorderRadius.circular(100)
+                       ),
+                       child: Center(child: KText(text: "0",fontSize: 8,color: BrandColors.colorWhite,)),
+                     ),
+                   )
+                 ],
+               ),
 
-        ),
-      ),
+             ),
+           ),
 
-      SizedBox(width: 10,)
+           SizedBox(width: 10,)
+         ],
+       ),
+     )
     ],
   );
 }

@@ -63,7 +63,7 @@ class LoginPage extends StatelessWidget {
               ),
               GlobalButtons.buttonWidget(
                   press: (){
-                    Get.to(NavBarScreen());
+                    Get.to(NavBarScreen(currentLocationAddress: "Set your current location",));
                   },
                   text: "Login",color: BrandColors.navitemSelectColor),
               SizedBox(
@@ -82,17 +82,24 @@ class LoginPage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+
                         Padding(
                           padding: const EdgeInsets.all(5),
-                          child: Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzX1hgfyzyzsRPx94B_-lhGFtoJdLg1zeO4IancOY&s",height: 50,width: 50,),
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzX1hgfyzyzsRPx94B_-lhGFtoJdLg1zeO4IancOY&s",height: 50,width: 50,)),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(5),
-                          child: Image.network("https://upload.wikimedia.org/wikipedia/commons/a/ab/Apple-logo.png",height: 50,width: 50,),
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: Image.network("https://upload.wikimedia.org/wikipedia/commons/a/ab/Apple-logo.png",height: 50,width: 50,)),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(5),
-                          child: Image.network("https://img.freepik.com/premium-vector/blue-social-media-logo_197792-1759.jpg",height: 50,width: 50,),
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: Image.network("https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/2048px-Facebook_f_logo_%282019%29.svg.png",height: 50,width: 50,)),
                         )
                       ],
                     ),

@@ -12,8 +12,9 @@ class BrandColors {
 
   static const Color backgroundColor = Colors.white;
 
-  static const Color primaryColor = Colors.black;
+  static const Color colorDark = Colors.black;
   static const Color colorWhite = Color(0xFFFBFAFF);
+
 
 
   static const Color colorButton = Color(0xFF67C4A7);

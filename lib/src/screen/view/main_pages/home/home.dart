@@ -79,30 +79,30 @@ class HomePage extends StatelessWidget {
                 ),
 
                 Row(
-               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                 KText(text: "Recent product",fontSize: 18,fontWeight: FontWeight.w600,),
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    KText(text: "Recent product",fontSize: 18,fontWeight: FontWeight.w600,),
 
-                 Card(
-                   child: Container(
-                    color: Colors.white,
-                     child: Padding(
-                       padding: const EdgeInsets.all(8.0),
-                       child: Row(
-                         children: [
-                           KText(text: "Filters",color: BrandColors.greyColor,),
-                           SizedBox(
-                             width: 10,
-                           ),
-                           Icon(Icons.filter_alt_sharp,color: BrandColors.greyColor,)
-                         ],
-                       ),
-                     ),
-                   ),
-                 ),
+                    Card(
+                      child: Container(
+                        color: Colors.white,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            children: [
+                              KText(text: "Filters",color: BrandColors.greyColor,),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Icon(Icons.filter_alt_sharp,color: BrandColors.greyColor,)
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
 
-                ],
-              ),
+                  ],
+                ),
                 SizedBox(
                   height: 10,
                 ),

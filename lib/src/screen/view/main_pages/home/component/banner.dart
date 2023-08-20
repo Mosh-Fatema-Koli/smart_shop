@@ -1,6 +1,8 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class BannerImageCarousel extends StatelessWidget {
 
@@ -13,30 +15,33 @@ class BannerImageCarousel extends StatelessWidget {
   @override
 
   Widget build(BuildContext context) {
-    return Container(
-      height: 180, // Adjust the height as per your requirement
-      child: CarouselSlider(
-        options: CarouselOptions(
-          aspectRatio: 2.0,
-          enlargeCenterPage: true,
-          viewportFraction: 1,
-          enableInfiniteScroll: false,
-          initialPage: 1,
-          autoPlay: true,
+    return Center(
+      child: Container(
+        height: 200,
+        width: Get.width.sw,// Adjust the height as per your requirement
+        child: CarouselSlider(
+          options: CarouselOptions(
+            aspectRatio: 2.0,
+            enlargeCenterPage: true,
+            viewportFraction: 1,
+            enableInfiniteScroll: false,
+            initialPage: 1,
+            autoPlay: true,
 
 
+          ),
+          items: bannerImages.map((imageURL) {
+            return Builder(
+              builder: (BuildContext context) {
+                return Image.asset(
+                  imageURL,
+                  fit: BoxFit.fitWidth,
+                  width: MediaQuery.of(context).size.width,
+                );
+              },
+            );
+          }).toList(),
         ),
-        items: bannerImages.map((imageURL) {
-          return Builder(
-            builder: (BuildContext context) {
-              return Image.asset(
-                imageURL,
-                fit: BoxFit.cover,
-                width: MediaQuery.of(context).size.width,
-              );
-            },
-          );
-        }).toList(),
       ),
     );
   }

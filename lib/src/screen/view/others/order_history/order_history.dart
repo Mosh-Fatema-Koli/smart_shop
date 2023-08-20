@@ -20,27 +20,29 @@ class OrderHistory extends StatelessWidget {
           }, icon: Icon(Icons.arrow_back,color: Colors.black,),),
         title: KText(text: "Order History",),
         actions: [
-          GestureDetector(
-            onTap: (){
-              Get.to(CartPage());
-            },
-            child: Stack(
-              children: [
-                Image.asset(AppIcons.cart,height: 30,width: 30,),
-                Positioned(
-                  top: 0,
-                  right: 0,
-                  child: Container(
-                    height: 15,
-                    width: 15,
-                    decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(100)
+          Center(
+            child: GestureDetector(
+              onTap: (){
+                Get.to(CartPage());
+              },
+              child: Stack(
+                children: [
+                  Image.asset(AppIcons.cart,height: 30,width: 30,),
+                  Positioned(
+                    top: 0,
+                    right: 0,
+                    child: Container(
+                      height: 15,
+                      width: 15,
+                      decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(100)
+                      ),
+                      child: Center(child: KText(text: "0",fontSize: 8,color: BrandColors.colorWhite,)),
                     ),
-                    child: Center(child: KText(text: "0",fontSize: 8,color: BrandColors.colorWhite,)),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           ),
           SizedBox(
@@ -53,6 +55,8 @@ class OrderHistory extends StatelessWidget {
         itemBuilder: (context, index) =>Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 5),
           child: Card(
+            shadowColor: BrandColors.colorButton,
+            elevation: 5,
             child: Container(
 
               width: Get.width,
@@ -68,7 +72,7 @@ class OrderHistory extends StatelessWidget {
                   ),
 
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10,),
+                    padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
                     child: Row(
                       children: [
                         Expanded(child: Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy38XI-A70Sxrro3aYq24lQJTQG9b8xTnwtw&usqp=CAU",height: 100,width:Get.width,fit: BoxFit.fitWidth,)),
@@ -84,7 +88,7 @@ class OrderHistory extends StatelessWidget {
                           Row(
                             children: [
                               KText(text: "Tk 500000 *",fontSize: 12,),
-                              KText(text: "1",fontSize: 12,),
+                              KText(text: " 1",fontSize: 12,),
 
                             ],
                           ),

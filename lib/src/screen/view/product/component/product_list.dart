@@ -12,55 +12,70 @@ class ProductList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      itemCount: 10,
-      physics: AlwaysScrollableScrollPhysics(),
+      itemCount: 30,
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 5,
-          mainAxisSpacing: 10,
-          childAspectRatio: .75
-
-
+        crossAxisCount: 2,
+        crossAxisSpacing: 5,
+        mainAxisSpacing: 10,
+        childAspectRatio: .75,
       ),
       itemBuilder: (BuildContext context, int index) {
-        return   GestureDetector(
-          onTap: (){
+        return GestureDetector(
+          onTap: () {
             Get.to(ProductDetails());
           },
           child: Card(
             color: BrandColors.cardColor,
             child: Container(
-              height: 210,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                      flex:4,
-                      child: ClipRRect(
-                          borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10), ),
-                          child: Image.asset("images/products/img.png",fit: BoxFit.cover,height: 120,width: Get.width,))),
-                  Expanded(
-                    flex: 5,
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            KText(text: "Women Printed Kurta",fontSize: 14,fontWeight: FontWeight.bold,),
-                            SizedBox(height: 5,),
-                            KText(text: "Tk 1500"),
-
-                            SizedBox(height: 10,),
-                            CartButtons.cartbuttonWidget(text: "Add to cart",textColor:BrandColors.colorWhite,color: BrandColors.colorButton)
-
-
-                          ],
-                        ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10),
+                      ),
+                      child: Image.asset(
+                        "images/products/img.png",
+                        fit: BoxFit.cover,
+                        height: 120,
+                        width: Get.width,
                       ),
                     ),
-                  )
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        KText(
+                          text: "Women Printed Kurta",
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        SizedBox(height: 5),
+                        KText(text: "Tk 1500", fontSize: 12,),
+                        SizedBox(height: 10),
+                        CartButtons.cartbuttonWidget(
+                          press: () {
+                            Get.snackbar(
+                              "Item Added",
+                              "Women Printed Kurta added to cart.",
+                              backgroundColor: BrandColors.colorButton,
+                              colorText: BrandColors.colorTextDark,
+                            );
+                          },
+                          text: "Add to cart",
+                          textColor: BrandColors.colorWhite,
+                          color: BrandColors.colorButton,
+                        ),
 
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

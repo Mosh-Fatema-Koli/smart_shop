@@ -42,7 +42,10 @@ dependencies:
   location:
   google_maps_flutter:
   geolocator:
+  geocoding:
   url_launcher:
+  flutter_screenutil: ^5.8.4
+  shared_preferences:
 
 
 

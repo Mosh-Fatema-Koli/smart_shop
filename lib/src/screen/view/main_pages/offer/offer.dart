@@ -15,6 +15,8 @@ class OfferPage extends StatelessWidget {
         itemBuilder: (context, index) =>Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 5),
           child: Card(
+            shadowColor: BrandColors.colorButton,
+            elevation: 5,
             child: Container(
 
               width: Get.width,

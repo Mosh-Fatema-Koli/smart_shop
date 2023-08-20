@@ -19,27 +19,29 @@ class AboutUs extends StatelessWidget {
           }, icon: Icon(Icons.arrow_back,color: Colors.black,),),
         title: KText(text: "About Us",),
         actions: [
-          GestureDetector(
-            onTap: (){
-              Get.to(CartPage());
-            },
-            child: Stack(
-              children: [
-                Image.asset(AppIcons.cart,height: 30,width: 30,),
-                Positioned(
-                  top: 0,
-                  right: 0,
-                  child: Container(
-                    height: 15,
-                    width: 15,
-                    decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(100)
+          Center(
+            child: GestureDetector(
+              onTap: (){
+                Get.to(CartPage());
+              },
+              child: Stack(
+                children: [
+                  Image.asset(AppIcons.cart,height: 30,width: 30,),
+                  Positioned(
+                    top: 0,
+                    right: 0,
+                    child: Container(
+                      height: 15,
+                      width: 15,
+                      decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(100)
+                      ),
+                      child: Center(child: KText(text: "0",fontSize: 8,color: BrandColors.colorWhite,)),
                     ),
-                    child: Center(child: KText(text: "0",fontSize: 8,color: BrandColors.colorWhite,)),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           ),
           SizedBox(
