@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:smart_shop/src/screen/const/helper/routes.dart';
 import 'package:smart_shop/src/screen/view/auth/login.dart';
 import 'package:smart_shop/src/screen/widgets/colors.dart';
 import 'package:smart_shop/src/screen/widgets/k_text.dart';
@@ -16,7 +17,7 @@ class SplashPage extends StatelessWidget {
 
     Future.delayed(const Duration(seconds: 3), () {
 
-     Get.to(LoginPage());
+      Get.offAllNamed(Routes.navBarScreen);
 
 
     });

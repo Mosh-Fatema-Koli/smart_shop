@@ -12,12 +12,14 @@ import 'package:smart_shop/src/screen/widgets/k_text.dart';
 
 class NavBarScreen extends StatelessWidget {
 
-
   final String? currentLocationAddress;
 
   NavBarScreen({this.currentLocationAddress});
 
   final _navController =Get.put(NavBarController());
+
+
+
 
   @override
   Widget build(BuildContext context) {

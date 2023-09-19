@@ -223,6 +223,7 @@ class _TextboxWidgetState extends State<TextboxWidget> {
         obscureText: !_passwordVisible1,
         keyboardType: widget.keyboardType,
         cursorHeight: 20,
+
         validator: (value) {
 
           RegExp regex=RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
@@ -236,7 +237,7 @@ class _TextboxWidgetState extends State<TextboxWidget> {
           }
           return null;
         },
-        style: const TextStyle(fontSize: 16),
+        style: myStyle(14.0, Color.fromARGB(234, 70, 69, 69)),
         onChanged: (value) {
           //   log(widget.controller.text);
         },
@@ -252,7 +253,7 @@ class _TextboxWidgetState extends State<TextboxWidget> {
           contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 16),
           fillColor: Colors.white,
           focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.grey, width: 1),
+            borderSide: const BorderSide(color: Colors.grey, width: 1,),
             borderRadius: BorderRadius.circular(10),
           ),
           focusedErrorBorder: OutlineInputBorder(
@@ -260,6 +261,7 @@ class _TextboxWidgetState extends State<TextboxWidget> {
             borderRadius: BorderRadius.circular(10),
 
           ),
+          filled: true,
           alignLabelWithHint: true,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),

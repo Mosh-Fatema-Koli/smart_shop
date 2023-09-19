@@ -27,10 +27,10 @@ class BottomSheetWidget extends StatelessWidget {
               },
             leading: Icon(Icons.add_circle,color: BrandColors.colorButton,),
               title: KText(text:'Add Your Current Location',fontSize: 14,),
-              trailing: IconButton(onPressed: (){
-                _mapController.getmapCurrentLocation();
-                Navigator.pop(context);
-              },icon: Icon(Icons.arrow_forward_rounded),),
+              // trailing: IconButton(onPressed: (){
+              //   _mapController.getmapCurrentLocation();
+              //   Navigator.pop(context);
+              // },icon: Icon(Icons.arrow_forward_rounded),),
 
           )
           ],
