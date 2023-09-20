@@ -48,7 +48,7 @@ class AuthController extends GetxController{
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String token = prefs.getString(AppConstant.token.toString())??"";
     isLogged.value =token;
-    print("Token:$isLogged.");
+    print("Token:$isLogged");
     
   }
 
